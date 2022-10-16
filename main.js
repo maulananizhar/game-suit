@@ -5,6 +5,19 @@ let lawan, pilihanAnda, pilihanLawan;
 let totalAnda = 0
 let totalLawan = 0
 
+function del(pilihan) {
+    document.getElementById("batu").classList.add("d-none");
+    document.getElementById("gunting").classList.add("d-none");
+    document.getElementById("kertas").classList.add("d-none");
+    document.getElementById(pilihan).classList.toggle("d-none");
+}
+function delLawan(pilihan) {
+    document.getElementById("batuLawan").classList.add("d-none");
+    document.getElementById("guntingLawan").classList.add("d-none");
+    document.getElementById("kertasLawan").classList.add("d-none");
+    document.getElementById(pilihan).classList.toggle("d-none");
+}
+
 function rand(pilihanAnda) {
     document.getElementById("anda").classList.add("d-none");
     document.getElementById("lawan").classList.add("d-none");
@@ -23,31 +36,19 @@ function rand(pilihanAnda) {
 
         switch (pilihanAnda) {
             case `batu`:
-                document.getElementById("batu").classList.add("d-none");
-                document.getElementById("gunting").classList.add("d-none");
-                document.getElementById("kertas").classList.add("d-none");
-                document.getElementById("batu").classList.toggle("d-none");
+                del("batu")
                 switch (pilihanLawan) {
                     case `batu`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("batuLawan").classList.toggle("d-none");
+                        delLawan("batuLawan")
                         document.getElementById("score").innerHTML = "Anda Seri"
                         break;
                     case `gunting`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.toggle("d-none");
+                        delLawan("guntingLawan")
                         document.getElementById("score").innerHTML = "Anda Menang"
                         totalAnda += 1
                         break;
                     case `kertas`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.toggle("d-none");
+                        delLawan("kertasLawan")
                         document.getElementById("score").innerHTML = "Anda Kalah"
                         totalLawan += 1
                         break;
@@ -57,31 +58,19 @@ function rand(pilihanAnda) {
                 }
                 break;
             case `gunting`:
-                document.getElementById("batu").classList.add("d-none");
-                document.getElementById("gunting").classList.add("d-none");
-                document.getElementById("kertas").classList.add("d-none");
-                document.getElementById("gunting").classList.toggle("d-none");
+                del("gunting")
                 switch (pilihanLawan) {
                     case `batu`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("batuLawan").classList.toggle("d-none");
+                        delLawan("batuLawan")
                         document.getElementById("score").innerHTML = "Anda Kalah"
                         totalLawan += 1
                         break;
                     case `gunting`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.toggle("d-none");
+                        delLawan("guntingLawan")
                         document.getElementById("score").innerHTML = "Anda Seri"
                         break;
                     case `kertas`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.toggle("d-none");
+                        delLawan("kertasLawan")
                         document.getElementById("score").innerHTML = "Anda Menang"
                         totalAnda += 1
                         break;
@@ -91,32 +80,20 @@ function rand(pilihanAnda) {
                 }
                 break;
             case `kertas`:
-                document.getElementById("batu").classList.add("d-none");
-                document.getElementById("gunting").classList.add("d-none");
-                document.getElementById("kertas").classList.add("d-none");
-                document.getElementById("kertas").classList.toggle("d-none");
+                del("kertas")
                 switch (pilihanLawan) {
                     case `batu`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("batuLawan").classList.toggle("d-none");
+                        delLawan("batuLawan")
                         document.getElementById("score").innerHTML = "Anda Menang"
                         totalAnda += 1
                         break;
                     case `gunting`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.toggle("d-none");
+                        delLawan("guntingLawan")
                         document.getElementById("score").innerHTML = "Anda Kalah"
                         totalLawan += 1
                         break;
                     case `kertas`:
-                        document.getElementById("batuLawan").classList.add("d-none");
-                        document.getElementById("guntingLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.add("d-none");
-                        document.getElementById("kertasLawan").classList.toggle("d-none");
+                        delLawan("kertasLawan")
                         document.getElementById("score").innerHTML = "Anda Seri"
                         break;
 
